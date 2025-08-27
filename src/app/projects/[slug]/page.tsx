@@ -46,12 +46,16 @@ export default async function ProjectPage({
       <h1 className="text-3xl md:text-4xl font-bold">{frontmatter.title}</h1>
       <p className="mt-2 text-black/70 max-w-prose">{frontmatter.description}</p>
       <div className="mt-8 prose prose-sm md:prose-base max-w-none prose-headings:scroll-mt-24">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, { behavior: "append" }]] as PluggableList}
-        >
-          {content}
-        </ReactMarkdown>
+        {frontmatter.contentType === "html" ? (
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        ) : (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, { behavior: "append" }]] as PluggableList}
+          >
+            {content}
+          </ReactMarkdown>
+        )}
       </div>
     </div>
   );

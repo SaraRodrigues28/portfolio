@@ -24,7 +24,7 @@ export default function ProjectCard({ project }: { project: ProjectMeta }) {
             src={project.thumbnail || "/next.svg"}
             alt={project.title}
             fill
-            className="object-contain p-6"
+            className="object-cover"
           />
         </div>
       </Link>

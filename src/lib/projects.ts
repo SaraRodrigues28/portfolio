@@ -9,6 +9,7 @@ export type ProjectFrontmatter = {
   date?: string;
   thumbnail?: string;
   readTime?: string;
+  contentType?: string;
 };
 
 const CONTENT_DIR = path.join(process.cwd(), "src", "content", "projects");
